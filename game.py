@@ -60,7 +60,7 @@ class SpaceShip(Turtle):
         self.goto(x,y)
         self.dx = dx
         self.dy = dy
-        self.shape("ship")
+         
 
     def move(self):
         screen = self.getscreen()
