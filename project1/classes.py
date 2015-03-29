@@ -38,7 +38,7 @@ turtle.hideturtle()
 turtle.mainloop()
 		
 class Animal(turtle):
-	def__init__(self, x, y, Type, speed, health)
+	def __init__(self, x, y, Type, speed, health)
 		self.penup()
 		self.goto(x,y)
 		self.x= x
@@ -47,6 +47,24 @@ class Animal(turtle):
 		self.speed= speed
 		self.health= health
 
+	def getSize(self):
+        return self.size
+
+    def getRadius(self):
+        return 2
+    
+    def getDX(self):
+        return self.dx
+    
+    def getDY(self):
+        return self.dy
+    
+    def setDX(self,dx):
+        self.dx = dx
+        
+    def setDY(self,dy):
+        self.dy = dy
+
 	def Disappearing (self):
 		if health = 0
 			turtle.hideturtle()
@@ -54,7 +72,28 @@ class Animal(turtle):
 	def Loser_Disappearing (self):
 			if x = 100 y = 100
 				turtle.hideturtle()
+	def move(self):
+        screen = self.getscreen()
+        x = self.xcor()
+        y = self.ycor()
 
+        x = (self.dx + x - screenMinX) % (screenMaxX - screenMinX) + screenMinX
+        y = (self.dy + y - screenMinY) % (screenMaxY - screenMinY) + screenMinY
+        
+        self.goto(x,y)
+
+    def intersect(object1,object2):
+        dist = math.sqrt((object1.xcor() - object2.xcor())**2 + (object1.ycor() - object2.ycor())**2)
+        
+        radius1 = object1.getRadius()
+        radius2 = object2.getRadius()
+        
+        # The following if statement could be written as 
+        # return dist <= radius1+radius2
+        if dist <= radius1+radius2:
+            return True
+        else:
+            return False
 
 class Machine(turtle):
 	def __init__(self,x,y,shape,animal,shoot)
@@ -77,6 +116,7 @@ class Store (turtle):
 
 	turtle.penup():
 	turtle.hideturtle()
+	turtle.pendown()
 	turtle.speed(0)
 	turtle.goto(2000,600)
 	turtle.goto(2250,600)

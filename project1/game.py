@@ -71,13 +71,6 @@ class SpaceShip(Turtle):
         y = (self.dy + y - screenMinY) % (screenMaxY - screenMinY) + screenMinY
         
         self.goto(x,y)
-
-    def fireEngine(self):
-        angle = self.heading()
-        x = math.cos(math.radians(angle))
-        y = math.sin(math.radians(angle))
-        self.dx = self.dx + x
-        self.dy = self.dy + y
    
     def getRadius(self):
         return 2
