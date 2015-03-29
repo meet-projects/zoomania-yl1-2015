@@ -1,6 +1,6 @@
 #This is a demo project for meet Yearlong 2014-15 Y1
 from turtle import *
-import tkinter.messagebox
+import tkinter.mes sagebox
 import tkinter
 import random
 import math
@@ -60,7 +60,7 @@ class SpaceShip(Turtle):
         self.goto(x,y)
         self.dx = dx
         self.dy = dy
-         
+        self.shape("ship")
 
     def move(self):
         screen = self.getscreen()
@@ -104,7 +104,7 @@ def intersect(object1,object2):
 def main():
     # These 4 lines just to prepare the window of the game, no need to change them
     root = tkinter.Tk()
-    root.title("Asteroids!")
+    root.tobject1itle("Asteroids!")
     cv = ScrolledCanvas(root,600,600,600,600)
     cv.pack(side = tkinter.LEFT)
 
@@ -117,6 +117,7 @@ def main():
     screen.register_shape("rock1",((-10,-5),(-12,0),(-8,8),(0,13),(8,6),(14,0),(12,0),(8,-6),(0,-7)))
     screen.register_shape("ship",((-10,-10),(0,-5),(10,-10),(0,10)))
     screen.register_shape("bullet",((-2,-4),(-2,4),(2,4),(2,-4)))
+    screen.register_shape("monkey.gif")
     frame = tkinter.Frame(root)
     frame.pack(side = tkinter.RIGHT,fill=tkinter.BOTH)
     t.ht()
